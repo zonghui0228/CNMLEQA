@@ -9696,10 +9696,10 @@
         "question_type": "案例分析",
         "source": "pubmed-38355517;github-llm-chinese-nmle",
         "disease or diagnosis": "无",
-        "surgery": NaN,
-        "medication": NaN,
-        "laboratory examination": NaN,
-        "symptom or sign": NaN
+        "surgery": "",
+        "medication": "",
+        "laboratory examination": "",
+        "symptom or sign": ""
     },
     {
         "id": "79fbcfa3-0fef-5b96-85a3-255bfc39aadd",
@@ -29460,10 +29460,10 @@
         "question_type": "知识问答",
         "source": "pubmed-38355517;github-llm-chinese-nmle",
         "disease or diagnosis": "高钾血症",
-        "surgery": NaN,
-        "medication": NaN,
+        "surgery": "",
+        "medication": "",
         "laboratory examination": "T波高尖",
-        "symptom or sign": NaN
+        "symptom or sign": ""
     },
     {
         "id": "bd7c22d3-165f-5df0-9fb3-b5df771c27df",
@@ -39363,7 +39363,7 @@
         "surgery": "无",
         "medication": "无",
         "laboratory examination": "无",
-        "symptom or sign": NaN
+        "symptom or sign": ""
     },
     {
         "id": "808317e4-e068-565b-acdf-d1ccb9a37241",
