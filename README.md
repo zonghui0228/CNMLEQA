@@ -1,70 +1,118 @@
+
 # CNMLEQA
 
-**CNMLEQA** is a benchmark dataset developed to evaluate the performance of large language models (LLMs) on Chinese National Medical Licensing Examinations. The dataset is designed to support structured, fine-grained analysis of LLM capabilities in factual medical knowledge, clinical reasoning, and exam-level competency.
+**CNMLEQA** is a large-scale benchmark dataset for evaluating large language models (LLMs) on the **Chinese National Medical Licensing Examination (CNMLE)**.
+
+This dataset has been officially published in *Scientific Data*:
+
+> Zong H, Cha J, Wang J, Song Y, Zhao Y, Shi M, Shen B. A Dataset for Evaluating Large Language Models on Chinese National Medical Licensing Examinations. Sci Data. 2026 Apr 17. doi: 10.1038/s41597-026-07261-9. PMID: 41998016.
+
+---
 
 ## 🔍 Overview
 
-- **Total questions answer pairs**: 9,890
-- **Subsets**:
-  - `CNMLEQA-10k`: Full dataset with 9,890 questions
-  - `CNMLEQA-3k`: Curated subset with 2,949 questions
-- **Question Type**:
-  - Knowledge-based questions
-  - Case-based clinical questions
-- **Format**: Multiple-choice (5 options: A–E, single correct answer)
-- **Language**: Chinese
+Large language models have shown strong performance in medical QA and clinical reasoning. However, standardized evaluation benchmarks in non-English medical contexts remain limited.
 
-## 📦 Dataset Structure
+CNMLEQA addresses this gap by providing a clinically grounded, expert-annotated benchmark for evaluating LLM performance in Chinese medical examinations.
 
-Each entry in the dataset includes the following fields:
+### Key Features
+
+- **Clinically grounded**: Derived from real CNMLE-style questions  
+- **Multidimensional annotations**: Enables fine-grained evaluation  
+- **Non-English benchmark**: Focused on Chinese medical context  
+- **LLM-evaluated**: Tested on state-of-the-art models  
+
+---
+
+## 📦 Dataset Composition
+
+| Subset         | Questions | Description |
+|----------------|-----------|-------------|
+| **CNMLEQA-10k** | 9,890     | Full dataset |
+| **CNMLEQA-3k**  | 2,949     | Curated high-quality subset |
+
+### Question Format
+
+- Multiple-choice questions (MCQs)
+- 5 options (A–E)
+- Single correct answer
+- Language: Chinese
+
+### Question Types
+
+- Knowledge-based questions
+- Case-based clinical questions
+
+---
+
+## 🧾 Annotation Schema
+
+Each question is annotated with multi-level clinical metadata.
+
+### Core Fields
 
 ```json
 {
   "id": "unique-id",
-  "question": "Question text in Chinese",
+  "question": "Question text",
   "opa": "Option A",
   "opb": "Option B",
   "opc": "Option C",
   "opd": "Option D",
   "ope": "Option E",
-  "answer": "Correct option (e.g., 'opc')",
+  "answer": "Correct option",
   "question_type": "Knowledge-based / Case-based",
-  "year": "Exam year (if available)",
-  "source": "Original data source (if available)"
+  "year": "Exam year",
+  "source": "Data source"
 }
 ```
 
-Example:
+### Extended Clinical Annotations
 
-```json
-{
-  "id":"3e8a9708-7df9-5066-ab4c-ea5c813227cc",
-  "question":"女，34岁，右尺骨骨折2小时，予手法复位，管型石膏固定5小时后，患者感觉右手指麻木，肿胀，活动不灵，查体：生命体征平稳，心肺腹未见异常，目前最恰当的处理方法是",
-  "opa":"脱水",
-  "opb":"立即手术",
-  "opc":"止痛",
-  "opd":"立即松解外固定",
-  "ope":"扩血管药物治疗",
-  "answer":"opd",
-  "year":2017,
-  "question_type":"案例分析",
-  "source":"pubmed-38355517;github-llm-chinese-nmle"
-}
-```
+Each question is further annotated across five clinical dimensions:
+
+* Disease / Diagnosis
+* Surgery
+* Medication
+* Laboratory Examination
+* Symptom / Sign
+
+All annotations were conducted and verified by clinical experts.
 
 
-```json
-{
-  "id":"da2084d0-8702-5af8-bf7c-7f7b76e3b208",
-  "question":"下列哪项疾病属于遗传性心肌病",
-  "opa":"扩张型心肌病",
-  "opb":"肥厚型心肌病",
-  "opc":"限制型心肌病",
-  "opd":"甲亢性心肌病",
-  "ope":"病毒性心肌病",
-  "answer":"opb",
-  "year":2021,
-  "question_type":"知识问答",
-  "source":"pubmed-38355517;github-llm-chinese-nmle"
-}
-```
+## 📊 Benchmark & Evaluation
+
+We evaluated CNMLEQA using multiple state-of-the-art LLMs, including:
+
+* Gemini
+* DeepSeek
+* GPT series
+* Qwen series
+* LLaMA
+
+Key Results
+
+* Qwen2.5-32B: 90.88% (CNMLEQA-10k)
+* DeepSeek-R1: 91.59% (CNMLEQA-3k)
+
+Fine-tuning experiments (on Qwen models) further demonstrated significant performance improvements.
+
+
+## 📥 Data Availability
+
+The dataset is publicly available at:
+* Zenodo:  https://zenodo.org/records/18951465
+* Github: https://github.com/zonghui0228/CNMLEQA
+
+
+## 📚 Citation
+
+If you use CNMLEQA in your research, please cite:
+
+1. Zong H, Cha J, Wang J, Song Y, Zhao Y, Shi M, Shen B. **A Dataset for Evaluating Large Language Models on Chinese National Medical Licensing Examinations**. *Scientific Data*. 2026 Apr 17. PMID: [41998016](https://pubmed.ncbi.nlm.nih.gov/41998016/). DOI: [10.1038/s41597-026-07261-9](https://doi.org/10.1038/s41597-026-07261-9).
+
+2. Zong H, Wu R, Cha J, et al. **Large Language Models in Worldwide Medical Exams: Platform Development and Comprehensive Analysis**. *Journal of Medical Internet Research*. 2024;26:e66114. PMID: [39729356](https://pubmed.ncbi.nlm.nih.gov/39729356/) DOI: [10.2196/66114](https://doi.org/doi:10.2196/66114) 
+
+3. Zong H, Li J, Wu E, et al. **Performance of ChatGPT on Chinese national medical licensing examinations: a five-year examination evaluation study for physicians, pharmacists and nurses**. *BMC Medical Education* 24, 143 (2024). PMID: [38355517](https://pubmed.ncbi.nlm.nih.gov/38355517/) DOI: [10.1186/s12909-024-05125-7](https://doi.org/10.1186/s12909-024-05125-7) 
+
+
