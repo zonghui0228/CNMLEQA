@@ -1,4 +1,3 @@
-
 # CNMLEQA
 
 **CNMLEQA** is a large-scale benchmark dataset for evaluating large language models (LLMs) on the **Chinese National Medical Licensing Examination (CNMLE)**.
@@ -7,7 +6,7 @@ This dataset has been officially published in *Scientific Data*:
 
 > Zong H, Cha J, Wang J, Song Y, Zhao Y, Shi M, Shen B. A Dataset for Evaluating Large Language Models on Chinese National Medical Licensing Examinations. Sci Data. 2026 Apr 17. doi: 10.1038/s41597-026-07261-9. PMID: 41998016.
 
----
+
 
 ## 🔍 Overview
 
@@ -22,7 +21,7 @@ CNMLEQA addresses this gap by providing a clinically grounded, expert-annotated 
 - **Non-English benchmark**: Focused on Chinese medical context  
 - **LLM-evaluated**: Tested on state-of-the-art models  
 
----
+
 
 ## 📦 Dataset Composition
 
@@ -43,7 +42,7 @@ CNMLEQA addresses this gap by providing a clinically grounded, expert-annotated 
 - Knowledge-based questions
 - Case-based clinical questions
 
----
+
 
 ## 🧾 Annotation Schema
 
